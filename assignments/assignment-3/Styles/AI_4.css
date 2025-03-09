@@ -1,0 +1,125 @@
+/* Wacky Matrix-Themed CSS for Portfolio */
+
+/* General Styles */
+body {
+    background: black;
+    font-family: 'Courier New', monospace;
+    color: #00ff00;
+    text-shadow: 0px 0px 10px #00ff00;
+    animation: matrixRain 0.1s infinite alternate;
+}
+
+@keyframes matrixRain {
+    from { background: radial-gradient(circle, #003300, black); }
+    to { background: radial-gradient(circle, black, #003300); }
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px;
+    background: #002200;
+    border-bottom: 5px solid #00ff00;
+    transform: skewY(-3deg);
+}
+
+h1 {
+    font-size: 3rem;
+    color: #00ff00;
+    text-transform: uppercase;
+    animation: matrixGlow 1s infinite alternate;
+}
+
+@keyframes matrixGlow {
+    from { text-shadow: 0 0 10px #00ff00, 0 0 20px #007700; }
+    to { text-shadow: 0 0 20px #00ff00, 0 0 30px #007700; }
+}
+
+/* Navigation */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 10px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    background: #003300;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #00ff00;
+    transition: transform 0.2s ease-in-out;
+}
+
+.nav-links li a:hover {
+    transform: scale(1.1);
+    background: #005500;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    background: rgba(0, 34, 0, 0.9);
+    box-shadow: 0 0 10px #00ff00;
+    transition: transform 0.3s;
+}
+
+section:hover {
+    transform: scale(1.05);
+}
+
+/* Buttons */
+button {
+    background: #00ff00;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: black;
+}
+
+button:hover {
+    background: #005500;
+    color: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+/* Matrix Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: black;
+    color: #00ff00;
+    border: 3px solid #00ff00;
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #00ff00;
+    text-align: center;
+}
+
+th {
+    background: #002200;
+    text-transform: uppercase;
+}
+
+/* Matrix Code Animation */
+@keyframes matrixScroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100%); }
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #002200;
+    border-top: 3px solid #00ff00;
+    animation: matrixScroll 5s linear infinite;
+}

@@ -1,0 +1,130 @@
+/* Wacky and Crazy CSS for Portfolio */
+
+/* General Styles */
+body {
+    background: linear-gradient(135deg, #5a7d7c, #7d99b2);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: backgroundScroll 10s infinite alternate;
+}
+
+@keyframes backgroundScroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px;
+    background: #4a6f6a;
+    border-bottom: 5px dashed #9ac5e8;
+    transform: skewY(-3deg);
+}
+
+h1 {
+    font-size: 3rem;
+    color: #c2fbd7;
+    text-transform: uppercase;
+    animation: neonGlow 1s infinite alternate;
+}
+
+@keyframes neonGlow {
+    from { text-shadow: 0 0 5px #c2fbd7, 0 0 10px #5a7d7c; }
+    to { text-shadow: 0 0 10px #c2fbd7, 0 0 20px #5a7d7c; }
+}
+
+/* Navigation */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 10px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    background: #77a6b6;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #fff;
+    transition: transform 0.2s ease-in-out;
+}
+
+.nav-links li a:hover {
+    transform: rotate(-5deg) scale(1.1);
+    background: #5a7d7c;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    border: 3px solid #c2fbd7;
+    border-radius: 15px;
+    background: rgba(90, 125, 124, 0.8);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+section:hover {
+    transform: rotate(2deg) scale(1.05);
+}
+
+/* Buttons */
+button {
+    background: #c2fbd7;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    animation: bounce 1s infinite alternate;
+}
+
+button:hover {
+    background: #7d99b2;
+    color: #fff;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-5px); }
+}
+
+/* Wacky Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #7d99b2;
+    color: #fff;
+    border: 5px dotted #c2fbd7;
+    transform: rotate(-2deg);
+}
+
+th, td {
+    padding: 15px;
+    border: 3px solid #c2fbd7;
+    text-align: center;
+}
+
+th {
+    background: #5a7d7c;
+    text-transform: uppercase;
+}
+
+/* Crazy Animations */
+@keyframes spinRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #4a6f6a;
+    border-top: 5px dashed #9ac5e8;
+    animation: spinRotate 10s linear infinite;
+}
