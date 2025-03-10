@@ -90,7 +90,7 @@ button:hover {
 }
 
 @keyframes bounce {
-    from { transform: translateY(0px); }
+    from { transform: translateY(0); }
     to { transform: translateY(-5px); }
 }
 

@@ -1,0 +1,277 @@
+/* Website Theme Dark colors*/
+:root {
+    --primary-color: #483320;
+    --secondary-color: rgba(19, 35, 18, 0.86);
+    --accent-one-color: rgba(72, 78, 35, 0.29);
+    --accent-two-color: #16150f;
+    --accent-three-color: rgba(46, 37, 16, 0.35);
+    --text-color: #cdcdcd;
+    --padding-standard: 1rem;
+    --border-radius: 5px;
+    --font-heading: 'Georgia', serif;
+    --font-body: 'Arial', sans-serif;
+}
+
+/* Body colors and font */
+body {
+    background-color: var(--accent-two-color);
+    font-family: var(--font-body);
+    color: var(--text-color);
+}
+
+/* Header containing image and name */
+header {
+    text-align: center;
+    padding: 30px;
+    background: var(--secondary-color);
+    font-family: var(--font-heading);
+    border-bottom: 5px dotted var(--primary-color); /* From AI_1 */
+    
+}
+
+/* Profile image style */
+#profile_image {
+    border-radius: 50%;
+    border: 3px outset var(--primary-color);
+    max-width: 10%;
+    min-width: 100px;
+}
+
+/* Profile image animation */
+#profile_image:hover { /* From AI_1 */
+    animation: 
+        hop 1s infinite, 
+        squish 1s infinite 3s, 
+        spin 1s infinite 6s ;
+}
+
+
+/* Div containing header text and logo */
+#subheading { 
+    justify-content: center;
+    font-size: clamp(12px, 2vw, 48px);
+    
+}
+
+/* Set logo to change size with window */
+#school_logo {
+    max-width: 15vw;
+    min-width: 50px;
+}
+
+/* Set h1 font size and color */
+h1 {
+    text-align: center;
+    font-size: clamp(12px, 3vw, 48px);
+    color: var(--tex-color);
+    animation: matrixGlow 1s infinite alternate;
+}
+
+/* center head texts */
+h2, h3, h4 {
+    text-align: center;
+    animation: matrixGlow 1s infinite alternate;
+}
+
+
+/* NavLinks and skill list organization*/
+.nav-links, #skills_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    padding: 10px;
+}
+
+/* NavLinks and skill list decoration */
+.nav-links li a, #skills_list li{
+    text-decoration: underline;
+    background: var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: var(--text-color);
+    
+}
+
+/* Navigation links animation */ /* From AI_1 */
+.nav-links li a:hover { /* This lets me alter the background of the anchor element */
+    animation: color_change 3s infinite 9s ;
+}
+.nav-links li:hover { /* This lets me alter the list element in the Nav Links */
+    animation: 
+        hop 1s infinite, 
+        squish 1s infinite 3s, 
+        spin 1s infinite 6s, 
+        hop_plus 1s infinite 9s, 
+        spin_plus 0.25s infinite 9s ;
+}
+
+/* Sections Style*/
+section {
+    padding: 20px;
+    margin: 19px;
+    border:3px solid var(--secondary-color);
+    border-radius: 15px;
+    background: var(--accent-three-color);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+}
+
+section:hover { /* From AI_1 */
+    transform: scale(1.05);
+}
+
+/* Table Style */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+}
+th{
+    background-color: var(--accent-two-color);
+} 
+td {
+    border: 1px solid var(--text-color);
+    padding: 12px; /* More padding for spacing */
+    text-align: left;
+    line-height: 1.5; /* Increases spacing between lines */
+}
+
+/* Horizontally Scrollable container with snap */ /* From AI_2 */
+.card_containter {
+    display: flex;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px;
+    gap: 100px;
+    scroll-padding: 10px;
+    scrollbar-color: var(--primary-color) var(--secondary-color);
+}
+
+/* Card style with snap */
+.card {
+    min-width: fit-content;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px;
+    border:3px solid var(--secondary-color);
+    border-radius: 15px;
+    background: var(--accent-one-color);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    scroll-snap-align: start;
+}
+
+
+/* Button Style */
+button {
+    background: var(--secondary-color);
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Button hover color change and hop animation */ /* From AI_1 */
+button:hover {
+    background: var(--primary-color);
+    color: #fff;
+    animation: hop 1s infinite;
+}
+
+
+/* video style, hidden by default */
+#extracurricular #videos{
+    width: 100%;
+    height: 100vh;
+    display: none;
+}
+
+/* check box, to show videos */
+#play_video:checked ~ #videos{
+    display: flex;
+    flex-wrap: wrap
+}
+
+/* Footer Style */
+footer {
+    background: var(--secondary-color);
+    border-top: 5px dashed var(--primary-color); /* from AI_1 */
+    text-align: center;
+    padding: 20px;
+}
+
+/* input focus color, size change */
+input:focus {
+    background-color: var(--primary-color);
+    width: 200px;
+}
+
+/* Keyframe Animations */
+@keyframes matrixGlow { /* from ai-2*/
+    from { text-shadow: 0 0 10px #f3f3f3, 0 0 20px #007700; }
+    to { text-shadow: 0 0 20px #f3f3f3, 0 0 30px #007700; }
+}
+@keyframes hop {
+    0% {translate: 0 0;}
+    50% {translate: 0 -10px;}
+    100% {translate: 0 0;}
+}
+@keyframes hop_plus {
+    25% {translate: 50px 0;}
+    50% {translate: 0 -50px;}
+    75% {translate: -50px 0;}
+    100%,0% {translate: 0 50px;}
+}
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+@keyframes spin_plus {
+    100%, 0% {transform: rotate(0deg) scale(1);}
+    50% {transform: rotate(360deg) scale(4);}
+}
+@keyframes squish {
+    0% {transform: scale(1); }
+    50% {transform: scale(1.2); }
+    100% {transform: scale(1); }
+}
+@keyframes color_change {
+    100%,0%{
+			background: rgb(255,0,0);
+		}
+		8%{
+			background: rgb(255,127,0);
+		}
+		16%{
+			background: rgb(255,255,0);
+		}
+		25%{
+			background-color: rgb(127,255,0);
+		}
+		33%{
+			background-color: rgb(0,255,0);
+		}
+		41%{
+			background-color: rgb(0,255,127);
+		}
+		50%{
+			background-color: rgb(0,255,255);
+		}
+		58%{
+			background-color: rgb(0,127,255);
+		}
+		66%{
+			background-color: rgb(0,0,255);
+		}
+		75%{
+			background-color: rgb(127,0,255);
+		}
+		83%{
+			background-color: rgb(255,0,255);
+		}
+		91%{
+			background-color: rgb(255,0,127);
+		}
+}

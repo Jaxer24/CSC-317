@@ -25,8 +25,7 @@ header {
     padding: 30px;
     background: var(--secondary-color);
     font-family: var(--font-heading);
-    border-bottom: 5px dotted var(--primary-color);
-    
+    border-bottom: 5px dotted var(--primary-color); /* From AI_1 */
 }
 
 /* Profile image style */
@@ -37,14 +36,13 @@ header {
     min-width: 100px;
 }
 
-/* Profile image animation */
-#profile_image:hover {
+/* Profile image animation progressively gets more animated the longer user hovers*/
+#profile_image:hover { /* From AI_1 */
     animation: 
         hop 1s infinite, 
         squish 1s infinite 3s, 
         spin 1s infinite 6s ;
 }
-
 
 /* Div containing header text and logo */
 #subheading { 
@@ -92,7 +90,7 @@ h2, h3, h4 {
     
 }
 
-/* Navigation links animation */
+/* Navigation links animation progressively gets more animated the longer user hovers */ /* From AI_1 */
 .nav-links li a:hover { /* This lets me alter the background of the anchor element */
     animation: color_change 3s infinite 9s ;
 }
@@ -116,6 +114,10 @@ section {
     justify-content: center;
 }
 
+section:hover { /* From AI_1 */
+    transform: scale(1.05);
+}
+
 /* Table Style */
 table {
     width: 100%;
@@ -133,7 +135,7 @@ td {
     line-height: 1.5; /* Increases spacing between lines */
 }
 
-/* Horizontally Scrollable container with snap */
+/* Horizontally Scrollable container with snap */ /* From AI_2 */
 .card_containter {
     display: flex;
     overflow: auto;
@@ -167,10 +169,11 @@ button {
     cursor: pointer;
 }
 
-/* Button hover color change */
+/* Button hover color change and hop animation */ /* From AI_1 */
 button:hover {
     background: var(--primary-color);
     color: #fff;
+    animation: hop 1s infinite;
 }
 
 
@@ -190,7 +193,7 @@ button:hover {
 /* Footer Style */
 footer {
     background: var(--secondary-color);
-    border-top: 5px dashed var(--primary-color);
+    border-top: 5px dashed var(--primary-color); /* from AI_1 */
     text-align: center;
     padding: 20px;
 }
