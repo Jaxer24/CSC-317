@@ -196,6 +196,14 @@ footer {
     border-top: 5px dashed var(--primary-color); /* from AI_1 */
     text-align: center;
     padding: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+/* center contact me */
+footer #contact-me{
+    margin: 0 auto;
+    width: fit-content;
 }
 
 /* input focus color, size change */

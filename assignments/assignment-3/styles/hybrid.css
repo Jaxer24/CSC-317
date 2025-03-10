@@ -103,6 +103,49 @@ h2, h3, h4 {
         spin_plus 0.25s infinite 9s ;
 }
 
+/* Sets a tooltip message to user */
+.tooltip .tooltiptext {
+    width: 120px;
+    background-color: rgba(39, 39, 39, 0.62);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    bottom: 200%;
+    left: 50%;
+    margin-left: -60px; 
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+/* reveal tooltip on hover */
+.tooltip #t1:hover #tt1{
+    display: block;
+}
+.nav-links #t2:hover #tt2{
+  visibility: visible;
+    opacity: 1;
+}
+.nav-links #t3:hover #tt3{
+  visibility: visible;
+    opacity: 1;
+}
+.nav-links #t4:hover #tt4{
+  visibility: visible;
+    opacity: 1;
+}
+.nav-links #t5:hover #tt5{
+  visibility: visible;
+    opacity: 1;
+}
+.nav-links #t6:hover #tt6{
+  visibility: visible;
+    opacity: 1;
+}
+
+
+
 /* Sections Style*/
 section {
     padding: 20px;
@@ -196,6 +239,14 @@ footer {
     border-top: 5px dashed var(--primary-color); /* from AI_1 */
     text-align: center;
     padding: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+/* center contact me */
+footer #contact-me{
+    margin: 0 auto;
+    width: fit-content;
 }
 
 /* input focus color, size change */
