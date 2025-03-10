@@ -12,14 +12,14 @@
     --font-body: 'Arial', sans-serif;
 }
 
-/* Body colors */
+/* Body colors and font */
 body {
     background-color: var(--accent-two-color);
     font-family: var(--font-body);
     color: var(--text-color);
 }
 
-/* Header */
+/* Header containing image and name */
 header {
     text-align: center;
     padding: 30px;
@@ -29,6 +29,7 @@ header {
     
 }
 
+/* Profile image style */
 #profile_image {
     border-radius: 50%;
     border: 3px outset var(--primary-color);
@@ -36,24 +37,43 @@ header {
     min-width: 100px;
 }
 
-#subheading {
+/* Profile image animation */
+#profile_image:hover {
+    animation: 
+        hop 1s infinite, 
+        squish 1s infinite 3s, 
+        spin 1s infinite 6s ;
+}
+
+
+/* Div containing header text and logo */
+#subheading { 
     justify-content: center;
     font-size: clamp(12px, 2vw, 48px);
     
 }
+
+/* Set logo to change size with window */
 #school_logo {
-    max-width: 100px;
+    max-width: 15vw;
     min-width: 50px;
 }
 
+/* Set h1 font size and color */
 h1 {
+    text-align: center;
     font-size: clamp(12px, 3vw, 48px);
     color: var(--tex-color);
 }
 
+/* center head texts */
+h2, h3, h4 {
+    text-align: center;
+}
 
-/* Navigation */
-.nav-links {
+
+/* NavLinks and skill list organization*/
+.nav-links, #skills_list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -62,28 +82,33 @@ h1 {
     padding: 10px;
 }
 
-.nav-links li a {
+/* NavLinks and skill list decoration */
+.nav-links li a, #skills_list li{
     text-decoration: underline;
     background: var(--secondary-color);
     padding: 10px 20px;
     border-radius: 20px;
     color: var(--text-color);
+    
 }
 
-.nav-links li:hover {
-    animation: pulse 1s infinite;
+/* Navigation links animation */
+.nav-links li a:hover { /* This lets me alter the background of the anchor element */
+    animation: color_change 3s infinite 9s ;
+}
+.nav-links li:hover { /* This lets me alter the list element in the Nav Links */
+    animation: 
+        hop 1s infinite, 
+        squish 1s infinite 3s, 
+        spin 1s infinite 6s, 
+        hop_plus 1s infinite 9s, 
+        spin_plus 0.25s infinite 9s ;
 }
 
-@keyframes pulse {
-    0% {transform: scale(1);}
-    50% {transform: scale(1.25);}
-    100% {transform: scale(1);}
-}
-
-/* Sections */
+/* Sections Style*/
 section {
     padding: 20px;
-    margin: 20px;
+    margin: 19px;
     border:3px solid var(--secondary-color);
     border-radius: 15px;
     background: var(--accent-three-color);
@@ -91,11 +116,24 @@ section {
     justify-content: center;
 }
 
-h2, h3, h4 {
-    
-    text-align: center;
+/* Table Style */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+}
+th{
+    background-color: var(--accent-two-color);
+} 
+td {
+    border: 1px solid var(--text-color);
+    padding: 12px; /* More padding for spacing */
+    text-align: left;
+    line-height: 1.5; /* Increases spacing between lines */
 }
 
+/* Horizontally Scrollable container with snap */
 .card_containter {
     display: flex;
     overflow: auto;
@@ -103,8 +141,10 @@ h2, h3, h4 {
     padding: 10px;
     gap: 100px;
     scroll-padding: 10px;
+    scrollbar-color: var(--primary-color) var(--secondary-color);
 }
 
+/* Card style with snap */
 .card {
     min-width: fit-content;
     align-items: center;
@@ -118,29 +158,8 @@ h2, h3, h4 {
     scroll-snap-align: start;
 }
 
-#skills_list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    list-style: none;
-    padding: 10px;
-}
 
-#skills_list li {
-    text-decoration: underline;
-    background: var(--secondary-color);
-    padding: 10px 20px;
-    border-radius: 20px;
-    color: var(--text-color);
-}
-
-#experience li {
-    padding: 15px;
-}
-
-
-/* Buttons */
+/* Button Style */
 button {
     background: var(--secondary-color);
     padding: 10px 20px;
@@ -148,42 +167,100 @@ button {
     cursor: pointer;
 }
 
+/* Button hover color change */
 button:hover {
     background: var(--primary-color);
     color: #fff;
 }
 
+
+/* video style, hidden by default */
 #extracurricular #videos{
     width: 100%;
     height: 100vh;
     display: none;
 }
 
+/* check box, to show videos */
 #play_video:checked ~ #videos{
     display: flex;
     flex-wrap: wrap
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--secondary-color);
-    border: 2px solid var(--primary-color);
-}
-
-th{
-    background-color: var(--accent-two-color);
-} 
-td {
-    border: 1px solid var(--text-color);
-    padding: 12px; /* More padding for spacing */
-    text-align: left;
-    line-height: 1.5; /* Increases spacing between lines */
-}
-
+/* Footer Style */
 footer {
     background: var(--secondary-color);
     border-top: 5px dashed var(--primary-color);
     text-align: center;
     padding: 20px;
+}
+
+/* input focus color, size change */
+input:focus {
+    background-color: var(--primary-color);
+    width: 200px;
+}
+
+/* Keyframe Animations */
+@keyframes hop {
+    0% {translate: 0 0;}
+    50% {translate: 0 -10px;}
+    100% {translate: 0 0;}
+}
+@keyframes hop_plus {
+    25% {translate: 50px 0;}
+    50% {translate: 0 -50px;}
+    75% {translate: -50px 0;}
+    100%,0% {translate: 0 50px;}
+}
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+@keyframes spin_plus {
+    100%, 0% {transform: rotate(0deg) scale(1);}
+    50% {transform: rotate(360deg) scale(4);}
+}
+@keyframes squish {
+    0% {transform: scale(1); }
+    50% {transform: scale(1.2); }
+    100% {transform: scale(1); }
+}
+@keyframes color_change {
+    100%,0%{
+			background: rgb(255,0,0);
+		}
+		8%{
+			background: rgb(255,127,0);
+		}
+		16%{
+			background: rgb(255,255,0);
+		}
+		25%{
+			background-color: rgb(127,255,0);
+		}
+		33%{
+			background-color: rgb(0,255,0);
+		}
+		41%{
+			background-color: rgb(0,255,127);
+		}
+		50%{
+			background-color: rgb(0,255,255);
+		}
+		58%{
+			background-color: rgb(0,127,255);
+		}
+		66%{
+			background-color: rgb(0,0,255);
+		}
+		75%{
+			background-color: rgb(127,0,255);
+		}
+		83%{
+			background-color: rgb(255,0,255);
+		}
+		91%{
+			background-color: rgb(255,0,127);
+		}
 }
