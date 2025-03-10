@@ -1,146 +1,266 @@
+/* Website Theme */
 :root {
-  --primary-color: #3b6f31;
-  --secondary-color: #86795b;
-  --padding-standard: 1rem;
-  --border-radius: 5px;
-  --font-heading: 'Georgia', serif;
-  --font-body: 'Arial', sans-serif;
+    --primary-color: #D4A373;
+    --secondary-color: #CCD5AE;
+    --accent-one-color: #E9EDC9;
+    --accent-two-color: #FEFAE0;
+    --accent-three-color: #FAEDCD;
+    --text-color: #373737;
+    --padding-standard: 1rem;
+    --border-radius: 5px;
+    --font-heading: 'Georgia', serif;
+    --font-body: 'Arial', sans-serif;
 }
 
- th, td {
-    border: 1px solid #7d7d7d;
-    padding: 12px; /* More padding for spacing */
-    text-align: left;
-    line-height: 1.5; /* Increases spacing between lines */
-   }
-
-/* Wacky and Crazy CSS for Portfolio */
-
-/* General Styles */
+/* Body colors and font */
 body {
-    background: linear-gradient(135deg, #5a7d7c, #7d99b2);
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    color: var(--primary-color);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    animation: backgroundScroll 10s infinite alternate;
+    background-color: var(--accent-two-color);
+    font-family: var(--font-body);
+    color: var(--text-color);
 }
 
-@keyframes backgroundScroll {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 100%; }
-}
-
-/* Header */
+/* Header containing image and name */
 header {
     text-align: center;
     padding: 30px;
-    background: #4a6f6a;
-    border-bottom: 5px dashed #9ac5e8;
-    transform: skewY(-3deg);
+    background: var(--secondary-color);
+    font-family: var(--font-heading);
+    border-bottom: 5px dotted var(--primary-color);
+    
 }
 
-h1 {
-    font-size: 3rem;
-    color: #c2fbd7;
-    text-transform: uppercase;
-    animation: neonGlow 1s infinite alternate;
+/* Profile image style */
+#profile_image {
+    border-radius: 50%;
+    border: 3px outset var(--primary-color);
+    max-width: 10%;
+    min-width: 100px;
 }
 
-@keyframes neonGlow {
-    from { text-shadow: 0 0 5px #c2fbd7, 0 0 10px #5a7d7c; }
-    to { text-shadow: 0 0 10px #c2fbd7, 0 0 20px #5a7d7c; }
+/* Profile image animation */
+#profile_image:hover {
+    animation: 
+        hop 1s infinite, 
+        squish 1s infinite 3s, 
+        spin 1s infinite 6s ;
 }
 
-/* Navigation */
-.nav-links {
-    display: flex;
+
+/* Div containing header text and logo */
+#subheading { 
     justify-content: center;
-    gap: 15px;
+    font-size: clamp(12px, 2vw, 48px);
+    
+}
+
+/* Set logo to change size with window */
+#school_logo {
+    max-width: 15vw;
+    min-width: 50px;
+}
+
+/* Set h1 font size and color */
+h1 {
+    text-align: center;
+    font-size: clamp(12px, 3vw, 48px);
+    color: var(--tex-color);
+}
+
+/* center head texts */
+h2, h3, h4 {
+    text-align: center;
+}
+
+
+/* NavLinks and skill list organization*/
+.nav-links, #skills_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
     list-style: none;
     padding: 10px;
 }
 
-.nav-links li a {
-    text-decoration: none;
-    background: #77a6b6;
+/* NavLinks and skill list decoration */
+.nav-links li a, #skills_list li{
+    text-decoration: underline;
+    background: var(--secondary-color);
     padding: 10px 20px;
     border-radius: 20px;
-    color: #fff;
-    transition: transform 0.2s ease-in-out;
+    color: var(--text-color);
+    
 }
 
-.nav-links li a:hover {
-    transform: rotate(-5deg) scale(1.1);
-    background: #5a7d7c;
+/* Navigation links animation */
+.nav-links li a:hover { /* This lets me alter the background of the anchor element */
+    animation: color_change 3s infinite 9s ;
+}
+.nav-links li:hover { /* This lets me alter the list element in the Nav Links */
+    animation: 
+        hop 1s infinite, 
+        squish 1s infinite 3s, 
+        spin 1s infinite 6s, 
+        hop_plus 1s infinite 9s, 
+        spin_plus 0.25s infinite 9s ;
 }
 
-/* Sections */
+/* Sections Style*/
 section {
     padding: 20px;
-    margin: 20px;
-    border: 3px solid #c2fbd7;
+    margin: 19px;
+    border:3px solid var(--secondary-color);
     border-radius: 15px;
-    background: rgba(90, 125, 124, 0.8);
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
+    background: var(--accent-three-color);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    justify-content: center;
 }
 
-section:hover {
-    transform: rotate(2deg) scale(1.05);
-}
-
-/* Buttons */
-button {
-    background: #c2fbd7;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s;
-    animation: bounce 1s infinite alternate;
-}
-
-button:hover {
-    background: #7d99b2;
-    color: #fff;
-}
-
-@keyframes bounce {
-    from { transform: translateY(0); }
-    to { transform: translateY(-5px); }
-}
-
-/* Wacky Tables */
+/* Table Style */
 table {
     width: 100%;
     border-collapse: collapse;
-    background: #7d99b2;
+    background: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+}
+th{
+    background-color: var(--accent-two-color);
+} 
+td {
+    border: 1px solid var(--text-color);
+    padding: 12px; /* More padding for spacing */
+    text-align: left;
+    line-height: 1.5; /* Increases spacing between lines */
+}
+
+/* Horizontally Scrollable container with snap */
+.card_containter {
+    display: flex;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px;
+    gap: 100px;
+    scroll-padding: 10px;
+    scrollbar-color: var(--primary-color) var(--secondary-color);
+}
+
+/* Card style with snap */
+.card {
+    min-width: fit-content;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px;
+    border:3px solid var(--secondary-color);
+    border-radius: 15px;
+    background: var(--accent-one-color);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    scroll-snap-align: start;
+}
+
+
+/* Button Style */
+button {
+    background: var(--secondary-color);
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Button hover color change */
+button:hover {
+    background: var(--primary-color);
     color: #fff;
-    border: 5px dotted #c2fbd7;
-    transform: rotate(-2deg);
 }
 
-th, td {
-    padding: 15px;
-    border: 3px solid #c2fbd7;
-    text-align: center;
+
+/* video style, hidden by default */
+#extracurricular #videos{
+    width: 100%;
+    height: 100vh;
+    display: none;
 }
 
-th {
-    background: #5a7d7c;
-    text-transform: uppercase;
+/* check box, to show videos */
+#play_video:checked ~ #videos{
+    display: flex;
+    flex-wrap: wrap
 }
 
-/* Crazy Animations */
-@keyframes spinRotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
+/* Footer Style */
 footer {
+    background: var(--secondary-color);
+    border-top: 5px dashed var(--primary-color);
     text-align: center;
     padding: 20px;
-    background: #4a6f6a;
-    border-top: 5px dashed #9ac5e8;
-    animation: spinRotate 10s linear infinite;
+}
+
+/* input focus color, size change */
+input:focus {
+    background-color: var(--primary-color);
+    width: 200px;
+}
+
+/* Keyframe Animations */
+@keyframes hop {
+    0% {translate: 0 0;}
+    50% {translate: 0 -10px;}
+    100% {translate: 0 0;}
+}
+@keyframes hop_plus {
+    25% {translate: 50px 0;}
+    50% {translate: 0 -50px;}
+    75% {translate: -50px 0;}
+    100%,0% {translate: 0 50px;}
+}
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+@keyframes spin_plus {
+    100%, 0% {transform: rotate(0deg) scale(1);}
+    50% {transform: rotate(360deg) scale(4);}
+}
+@keyframes squish {
+    0% {transform: scale(1); }
+    50% {transform: scale(1.2); }
+    100% {transform: scale(1); }
+}
+@keyframes color_change {
+    100%,0%{
+			background: rgb(255,0,0);
+		}
+		8%{
+			background: rgb(255,127,0);
+		}
+		16%{
+			background: rgb(255,255,0);
+		}
+		25%{
+			background-color: rgb(127,255,0);
+		}
+		33%{
+			background-color: rgb(0,255,0);
+		}
+		41%{
+			background-color: rgb(0,255,127);
+		}
+		50%{
+			background-color: rgb(0,255,255);
+		}
+		58%{
+			background-color: rgb(0,127,255);
+		}
+		66%{
+			background-color: rgb(0,0,255);
+		}
+		75%{
+			background-color: rgb(127,0,255);
+		}
+		83%{
+			background-color: rgb(255,0,255);
+		}
+		91%{
+			background-color: rgb(255,0,127);
+		}
 }

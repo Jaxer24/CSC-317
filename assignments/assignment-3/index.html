@@ -16,12 +16,11 @@
  
  <body> <!-- Page's Main Content -->
   <header> <!-- Personal Information summary -->
-   <img src="images/selfie.jpg" alt="Jacob's profile picture" style="width: 35%">
+   <img id="profile_image" src="images/selfie.jpg" alt="Jacob's profile picture" >
    <h1>Jacob Arciniega-Bueno</h1>
    <div id="subheading" style="display: flex; align-items: center;">
     <p style="display:inline">Computer Science Undergrad studying at SFSU</p> &nbsp;&nbsp;
-    <img style="display:inline; width: 20%;" src="images/SFSU-logo.png" alt="SFSU school logo"> &nbsp;&nbsp;
-    <iframe title="school-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3155.809499318934!2d-122.48251542411894!3d37.724149171998285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7db005c0e281%3A0xa57a7c9f946a45d3!2sSan%20Francisco%20State%20University!5e0!3m2!1sen!2sus!4v1740189769070!5m2!1sen!2sus" style="width:20%; border:0; display:inline;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <img id="school_logo"  src="images/SFSU-logo.png" alt="SFSU school logo"> &nbsp;&nbsp;
    </div>
     </header>
   
@@ -51,10 +50,24 @@
     </p>
    </section>
    
+   <!-- List of coding languages I know to some degree -->
+   <section id="skills">
+    <h2>Skills</h2>
+    <ul id="skills_list">
+     <li>HTML5</li>
+     <li>CSS3</li>
+     <li>Javascript</li>
+     <li>Python</li>
+     <li>Java</li>
+     <li>Kotlin</li>
+     <li>Assembly</li>
+    </ul>
+   </section>
+   
    <!-- Educational History listing some of my courses and attended institutions -->
    <section id="education"> 
     <h2>Education</h2> 
-    <ul> <!-- List of institutions (only 1 listed) -->
+    <ul style="list-style: none"> <!-- List of institutions (only 1 listed) -->
      <li>
       <h4>San Francisco State University</h4>
       <p>Bachelor of Science in Computer Science (By May 2026)</p>
@@ -87,8 +100,24 @@
    
    <section id="experience"> <!-- list of general work history, as well as computer science related experience -->
     <h2>Experience</h2>
-    <ul>
-     <li>
+    <div class="card_containter">
+    <ul style="list-style: none;">
+     <li  class="card">
+      <h4>Coding Experience</h4>
+      <ol>
+       <li>
+        Coding Clubs<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; By participating in coding clubs I learned how to effectively communicate and
+        collaborate with others.
+       </li>
+       <li>
+        School Projects<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; This expereince taught me how to work on collabroative projects and how to
+        meet pre-requisite obligations in my code.
+       </li>
+      </ol>
+     </li>
+     <li  class="card" >
       <h4>Work Experience</h4>
       <ol>
        <li>
@@ -113,45 +142,31 @@
        </li>
       </ol>
      </li>
-     <li>
-      <h4>CS Experience</h4>
-      <ol>
-       <li>
-        Coding Clubs<br>
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; By participating in coding clubs I learned how to effectively communicate and
-        collaborate with others.
-       </li>
-       <li>
-        School Projects<br>
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; This expereince taught me how to work on collabroative projects and how to
-        meet pre-requisite obligations in my code.
-       </li>
-      </ol>
-     </li>
     </ul>
+     </div>
    </section>
 
    <!-- Articles detailing some past, current, and future projects of mine -->
    <section id="projects">
     <h2>Projects</h2>
-    <div class="project-grid">
-     <article class="project-card">
+    <div class="card_containter">
+     <article class="card">
       <h3>Crypto Price Game</h3>
       <p>
-       A proof on concept game that gives players the name and logo of 3 random crypo tokens from CoinGecko's public
+       A proof of concept game that gives players the name and logo of 3 random crypo tokens from CoinGecko's public
        API. Players can then pick which of the three has the highest price, guessing right earns a point while guessing
        wrong ends the game. "Now you can simulate making important financial decisions on crypto tokens only using their
        name and logo. Just like a real crypto trader!"
       </p>
      </article>
-     <article class="project-card">
+     <article class="card">
       <h3>Flip Wrist</h3>
       <p>
        A lightweight comicbook reader for WearOS devices that allows users to read comic books directly from their watch
        storage or stream them from their phone using a companion app.
       </p>
      </article>
-     <article class="project-card">
+     <article class="card">
       <h3>Portfolio Website</h3>
       <p>
        This responsive portfolio website showcasing my projects, skills, and expereince. (Woah kind of breaking the 4th
@@ -161,25 +176,13 @@
     </div>
    </section>
    
-   <!-- List of coding languages I know to some degree -->
-   <section id="skills">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-     <li>HTML5</li>
-     <li>CSS3</li>
-     <li>Javascript</li>
-     <li>Python</li>
-     <li>Java</li>
-     <li>Kotlin</li>
-     <li>Assembly</li>
-    </ul>
-   </section>
-   
    <!-- Articles detailing my personal interests & hobbies -->
    <section id="extracurricular">
     <h2>Interests &amp; Hobbies</h2>
-    <article>
-     <h4 style="display:inline">Blockchain Technology</h4> &nbsp;
+    
+    <div class="card_containter">
+    <article class="card">
+     <h4 >Blockchain Technology</h4> &nbsp;
      <img src="images/Blockchain.png" width="40" alt="skateboard photo">
      <p>I love blockchain technology as this innovation has completely blown me away with its ability to solve many of the unsolvable problems we have today. 
       In March of 2021 I read the bitcoin whitepaper where I learnd that bitcoin is a “peer-to-peer network [that] timestamps transactions by hashing them into an ongoing chain of 
@@ -190,19 +193,24 @@
       <br><br>For a detailed look into how blockchain works and the specific problems with bitcoin please read my <a href="images/Blockchain%20Revolution,%20Bitcoin%20Problem.pdf">full article</a>.</p>
      
     </article>
-    <article>
-     <h4 style="display:inline">Skate Boarding</h4>
+    <article class="card">
+     <h4>Skate Boarding</h4>
      <img src="images/PennyBoard.png" width="100" alt="skateboard photo">
      <p>Whether I'm crusing around campus on my neon blue penny board, or shredding the skatepark with my full-sized board
       I just love the feeling of freedom I get when riding my board. After so many years it honestly feels like an extention of my body, skateboarding feels just as natural as walking now.</p> 
-    </article>
-    <article>
+    </article >
+    <article class="card">
      <h4>Animation</h4>
      <p>As a kid one of my all time favorite passtimes was creating flipbook animations. Just being able to transition my creative ideas into moving images was so amazing to me. 
       As I grew older I started adapting this hobby to start making simple digital animations. Eventually I moved onto more complex forms of animation with my favorite being 3D animations! Below is my very first digital animaition as well as a snippet of my latest project.</p>
-     <iframe style="display:inline" width=560 height="315" src="https://www.youtube.com/embed/XFO46frjrrU?si=WezwtLMuYbbH1S1X" title="first animation"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-     <iframe width="560" height="315" src="https://www.youtube.com/embed/DI_Kl5nHfBY?si=sNEj1dxSdOaaPws4" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </article>
+     <input type="checkbox" id="play_video">
+     <label for=play_video>Show Videos</label>
+     <div id="videos">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/XFO46frjrrU?si=WezwtLMuYbbH1S1X" title="first animation"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/DI_Kl5nHfBY?si=sNEj1dxSdOaaPws4" title="second animation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>   
+     </div>
+      </article>
+    </div>
    </section>
   </main>
 
