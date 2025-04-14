@@ -1,0 +1,202 @@
+:root{
+    --color_background: #000000;
+    --color_number: #474747;
+    --color_operator_right: #ffa500;
+    --color_operator_top: #b0b0b0;
+    --color_text: #ffffff;
+}
+
+body {
+    background-color: var(--color_background);
+}
+
+h1 {
+    color: var(--color_text);
+}
+
+div {
+    color: var(--color_text);
+}
+
+#display {
+    font-size: 75px;
+    justify-content: center;
+    text-align: center;
+}
+
+button {    
+    background: none;
+    border-style: none;
+    color: var(--color_text);
+    font-size: 40px;
+    text-shadow: 2px 1px #000000;
+}
+
+#buttons {
+    display: grid;
+    padding: 20px;
+    border: 20px;
+    margin: 40px;
+    width: auto;    
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: 50px 50px 50px 50px 50px;
+    grid-template-areas: 
+    "clear sign percent divide"
+    "seven eight nine multiply"
+    "four five six minus"
+    "one two three plus"
+    "zero zero decimal equals";
+    grid-gap: 20px;
+}
+
+#zero {
+    grid-area: zero;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_number);
+    border-radius: 100px;
+}
+
+#one {
+    grid-area: one;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_number);
+    border-radius: 100px;
+}
+
+#two{
+    grid-area: two;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_number);
+    border-radius: 100px;
+}
+
+#three{
+    grid-area: three;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_number);
+    border-radius: 100px;
+}
+
+#four{
+    grid-area: four;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_number);
+    border-radius: 100px;
+}
+
+#five{
+    grid-area: five;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_number);
+    border-radius: 100px;
+}
+
+#six{
+    grid-area: six;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_number);
+    border-radius: 100px;
+}
+
+#seven {
+    grid-area: seven;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_number);
+    border-radius: 100px;
+}
+
+#eight {
+    grid-area: eight;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_number);
+    border-radius: 100px;
+}
+
+#nine {
+    grid-area: nine;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_number);
+    border-radius: 100px;
+}
+
+#clear {
+    grid-area: clear;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_operator_top);
+    border-radius: 100px;
+}
+
+#percent {
+    grid-area: percent;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_operator_top);
+    border-radius: 100px;
+}
+
+#sign {
+    grid-area: sign;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_operator_top);
+    border-radius: 100px;
+}
+
+#divide {
+    grid-area: divide;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_operator_right);
+    border-radius: 100px;
+}
+
+#multiply {
+    grid-area: multiply;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_operator_right);
+    border-radius: 100px;
+}
+
+#minus {
+    grid-area: minus;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_operator_right);
+    border-radius: 100px;
+}
+
+#plus {
+    grid-area: plus;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_operator_right);
+    border-radius: 100px;
+}
+
+#decimal {
+    grid-area: decimal;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_number);
+    border-radius: 100px;
+}
+
+#equals {
+    grid-area: equals;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color_operator_right);
+    border-radius: 100px;
+}
