@@ -1,54 +1,124 @@
+/*Set global variables to initial values*/
 :root{
     --color_background: #000000;
     --color_number: #474747;
     --color_operator_right: #ffa500;
     --color_operator_top: #b0b0b0;
     --color_text: #ffffff;
+    --button_text: 2.5rem;
+    --button_width: 50px;
+    --button_shell_width: 65px;
+    --button_container_width: 90%;
+    --calc_width: 55vw;
+    --calc_height: 85vh;
+    --display_in_text_size: 3rem;
 }
 
+/*style whole page*/
+html{
+    overflow: hidden;
+}
+
+/*Style body*/
 body {
     background-color: var(--color_background);
+    margin: 0;
+    padding: 0;
 }
 
+/*Style link back to portfolio*/
+a {
+    padding: 20px;
+    margin-top: 50px;
+    color: aliceblue;
+    font-size: max(3vw, 10px);
+}
+
+/*Style header1s*/
 h1 {
     color: var(--color_text);
 }
 
+/*Set div text color*/
 div {
     color: var(--color_text);
 }
 
-#display {
-    font-size: 75px;
+/*Style whole Calculator*/
+#calculator {
+    display:flex;
+    position: relative;
+    bottom: 150px;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    text-align: center;
+    vertical-align: center;
+    width: var(--calc_width);
+    height: var(--calc_height);
+    margin: 200px auto;
 }
 
+/*style both displays, input and output*/
+#displays {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    overflow-x: auto; /* Hide any overflowing text */
+    overflow-y: hidden;
+}
+
+#display_input {
+    font-size: var(--display_in_text_size);
+    justify-content: end;
+    text-align: end;
+    width: var(--calc_width);
+}
+
+#display_output {
+    font-size: var(--display_in_text_size);
+    justify-content: end;
+    text-align: end;
+    width: var(--calc_width);
+}
+
+/*style all buttons*/
 button {    
+    display: flex;
     background: none;
-    border-style: none;
+    border: none;
+    text-align: center;
     color: var(--color_text);
-    font-size: 40px;
+    font-size: var(--button_text);
     text-shadow: 2px 1px #000000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
 }
 
-#buttons {
+/*Style button containers*/
+div.buttonDiv{
+    display: flex;
+    position: relative;
+}
+
+/*creating a grid container for buttons*/
+#button_container { 
     display: grid;
-    padding: 20px;
-    border: 20px;
-    margin: 40px;
-    width: auto;    
-    grid-template-columns: 100px 100px 100px 100px;
-    grid-template-rows: 50px 50px 50px 50px 50px;
+    width: var(--button_container_width);
+    height: 75%;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: 
     "clear sign percent divide"
     "seven eight nine multiply"
     "four five six minus"
     "one two three plus"
     "zero zero decimal equals";
-    grid-gap: 20px;
+    grid-gap: 10px;
 }
 
+/*setting individual button characteristics*/
 #zero {
     grid-area: zero;
     justify-content: center;
