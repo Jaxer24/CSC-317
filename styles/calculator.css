@@ -5,13 +5,13 @@
     --color_operator_right: #ffa500;
     --color_operator_top: #b0b0b0;
     --color_text: #ffffff;
-    --button_text: 2.5rem;
+    --button_text: 1.3em;
     --button_width: 50px;
     --button_shell_width: 65px;
     --button_container_width: 90%;
     --calc_width: 55vw;
-    --calc_height: 85vh;
-    --display_in_text_size: 3rem;
+    --calc_height: 65vh;
+    --display_in_text_size: 1.5em;
 }
 
 /*style whole page*/
@@ -24,6 +24,7 @@ body {
     background-color: var(--color_background);
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 /*Style link back to portfolio*/
@@ -48,7 +49,7 @@ div {
 #calculator {
     display:flex;
     position: relative;
-    bottom: 150px;
+    bottom: 170px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -62,9 +63,11 @@ div {
 #displays {
     display: flex;
     flex-direction: column;
+    position:relative;
     margin-bottom: 20px;
-    overflow-x: auto; /* Hide any overflowing text */
+    overflow-x: hidden; 
     overflow-y: hidden;
+    width: var(--calc_width);
 }
 
 #display_input {

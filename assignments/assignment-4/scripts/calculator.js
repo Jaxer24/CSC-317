@@ -1,9 +1,12 @@
 //initialize global variables
-const opperations = ["+", "-", "*", "/"];
-const buttonSafePattern = /[0-9]/;
-const opSafePattern = /[+*/-]/;
-const safePattern = /^[0-9+*/%.() -]+$/;
-let userInput = false;
+const opperations = ["+", "-", "*", "/"]; // all valid operations that can be displayed % excluded here
+const buttonSafePattern = /[0-9]/; 
+const opSafePattern = /[+*/-]/;  
+const safePattern = /^[0-9+*/%.() e-]+$/;
+let userInput = false;  //checked when number in the input is entered by user and unchecked when it is calculator generated
+//html container and text ids for text sizing
+let containerArr = ["displays", "displays","clear","sign","percent","divide","seven","eight","nine","multiply" ,"four","five","six","minus","one","two","three","plus","zero","decimal","equals" ];
+let textArr = ["display_input", "display_output","bclear","bsign","bpercent","bdivide","bseven","beight","bnine","bmultiply" ,"bfour","bfive","bsix","bminus","bone","btwo","bthree","bplus","bzero","bdecimal","bequals" ];
 
 //AC logic handler
 function clear(){
@@ -58,8 +61,13 @@ function percent(){
 function decimal(){
         let textIn = document.getElementById("display_input").textContent;
         let lastInCh = textIn.charAt(textIn.length-1);
-        if(!textIn.includes(".")){
-                document.getElementById("display_input").textContent = textIn+".";
+        if(userInput == false){
+                document.getElementById("display_input").textContent = "0.";
+                document.getElementById("display_output").textContent = textIn;
+        }else{
+                if(!textIn.includes(".")){
+                        document.getElementById("display_input").textContent = textIn+".";
+                }
         }
 }
 
@@ -70,9 +78,17 @@ function equals(){
         let lastOutCh = textOut.charAt(textOut.length-1);
         let x = "";
         
-        if(textOut.length==0){
+        let outputHasOperator = false;
+            
+        for(let i=0; i<=textOut.length-1;i++){
+                if(opperations.includes(textOut.charAt(i))){
+                        outputHasOperator = true;
+                }
+        }
+        console.log("has op: "+outputHasOperator);
+        if(textOut.length==0 || !outputHasOperator){
                 return;
-        }else if(textOut.includes("Error") || textIn.includes("Error")){
+        }else if(textOut.includes("Error") || textIn.includes("Error")|| textIn.includes("null")|| textIn.includes("NaN")){
                 document.getElementById("display_input").textContent = "0";
                 document.getElementById("display_output").textContent = "";
         }
@@ -94,7 +110,7 @@ function equals(){
                 document.getElementById("display_input").textContent = secureEval(textIn+x);
                 document.getElementById("display_output").textContent = textIn+x;
         }
-        
+        userInput = false;
 }
 
 //operator button logic handler
@@ -138,7 +154,7 @@ function numButton(symbol){
         let textIn = document.getElementById("display_input").textContent;
         let textOut = document.getElementById("display_output").textContent;
         
-        if(userInput == false || textIn.includes("Error") || textOut.includes("Error")){
+        if(userInput == false ||textOut.includes("Error") || textIn.includes("Error")|| textIn.includes("null")|| textIn.includes("NaN")){
                 document.getElementById("display_input").textContent = symbol;
                 if(textIn.includes("Error") || textOut.includes("Error")){
                 document.getElementById("display_output").textContent = "";
@@ -231,7 +247,7 @@ function secureEval(expression) {
         // Only allow numbers, operators, parentheses, and decimal points
         
         if (!safePattern.test(expression)) {
-                return "Eval Error";
+                return "Eval Error invalid symbol";
         }
 
         if (expression.charAt(expression.length-1)=="0" && expression.charAt(expression.length-2)=="/") {
@@ -241,8 +257,46 @@ function secureEval(expression) {
                         // eslint-disable-next-line no-new-func
                         return Function('"use strict"; return (' + expression + ')')();
                 } catch (e) {
-                        return "Eval Error";
+                        return "Eval Error, could not compute";
                         //throw new Error("Error evaluating expression.");
                 }
         }
 }
+
+//function to scale text based on screen size
+function scaleText() {
+        for(let i=0 ; i<= containerArr.length-1;i++){
+            const container = document.getElementById(containerArr[i]);
+            const text = document.getElementById(textArr[i]);
+            let fontSize = 20; // Initial font size
+            text.style.fontSize = fontSize + 'px';
+
+            // Ensure we're checking against the actual inner size of the container
+            const containerWidth = container.clientWidth;
+            const containerHeight = container.clientHeight;
+
+            // Decrease font size until it fits within both width and height
+            while (text.offsetWidth > containerWidth || text.offsetHeight > containerHeight) {
+                fontSize--;
+                if (fontSize <= 0) break;
+                text.style.fontSize = fontSize + 'px';
+            }
+
+            // Increase font size while it still fits within both width and height
+            while (text.offsetWidth < containerWidth && text.offsetHeight < containerHeight) {
+                fontSize++;
+                text.style.fontSize = fontSize + 'px';
+
+                // If it overflows after increasing, step back one size
+                if (text.offsetWidth > containerWidth || text.offsetHeight > containerHeight) {
+                    fontSize--;
+                    text.style.fontSize = fontSize + 'px';
+                    break;
+                }
+            }
+        }
+}
+
+window.onload = scaleText;
+
+window.onresize = scaleText;
