@@ -22,9 +22,7 @@ Any challenges you faced and how you overcame them:
     difficult than the javascript portion because I am very used to javascript, however struggling to get the CSS working 
     right helped me learn a lot of the fundemental mechanics behind the language. At first I tried to handle the dynamic
     sizing of the calculator using relative units such as %, fr, and vw/vh for each element in the calculator. This was 
-    extremely problematic as resizing the page caused many issues, so I ended up using a series of 5 media queries that 
-    statically change the calculator size depending on screen width, while not as clean or dynamic as I wanted it to look
-    I think it works well. I also had a huge problem with displaying the % symbol in my calculator so I had to create a work
+    extremely problematic as resizing the page caused many issues I eventually got it working okay but I think it could be better I also had a huge problem with displaying the % symbol in my calculator so I had to create a work
     around that turned numbers into their decimal form instead of showing them in percent form, while this mathematically 
     works the same I do wish I could have fixed this to make it more accurate to the real app.
     
@@ -35,4 +33,4 @@ Any additional features or improvements you added beyond the requirements:
     too small.
     
 Acknowledgment of any resources, tutorials, or code snippets you used:
-    I used the secureEval function provided in discord. 
+    I used the secureEval function provided in discord. the scaleText() function in calculator.js was copied from github then enhanced with ChatGPT to include my necessary requirments then edited by me to fit my code strucutre and naming scheme.
